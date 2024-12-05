@@ -21,8 +21,15 @@ class AnalizadorLexico:
             'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda',
             'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield'
         ])
-        self.patron = re.compile(r'(?P<NUMERO_REAL>\d+\.\d+)|' r'(?P<NUMERO_ENTERO>\d+)|' r'(?P<IDENTIFICADOR>[a-zA-Z_]\w*)|' r'(?P<ASIGNACION>=)|' r'(?P<OTRO>\S)')
-
+        # self.patron = re.compile( r'(?P<NUMERO_REAL>(\d+\.\d+|\.\d+))|' r'(?P<NUMERO_ENTERO>\d+)| ' r'(?P<IDENTIFICADOR>[a-zA-Z_]\w*)|' r'(?P<ASIGNACION>=)|' r'(?P<OTRO>\S)')
+        self.patron = re.compile(
+        r'(?P<NUMERO_REAL>(-?\d+\.\d+([eE][-+]?\d+)?|-?\.\d+([eE][-+]?\d+)?))|'  
+        r'(?P<NUMERO_ENTERO>-?\d+)|' 
+        r'(?P<OPERADOR>==|!=|<=|>=|[-+*/%=<>])|' 
+        r'(?P<IDENTIFICADOR>[a-zA-Z_]\w*)|'  
+        r'(?P<ASIGNACION>=)|' 
+        r'(?P<OTRO>\S)'  
+    )
 
         # Operadores
         # (?P<OPERADOR>==|!=|<=|>=|[-+*/%=<>])

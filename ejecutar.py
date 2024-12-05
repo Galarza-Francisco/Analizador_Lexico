@@ -2,7 +2,7 @@ from analizador_lexico import AnalizadorLexico
 # importamos el analizador lexico
 if __name__ == "__main__":  
     # texto que se quiere analizar
-    textoAnalizar = "in range(10) print(i) + None False true "
+    textoAnalizar = '** cadena // //= 0.23 cadena .23 none 0.23e1 0.23e-1 0.23E1 0.23E-1 -.23  _   45'
 
     # Creamos una instancia (objeto) del analizador
     analizador = AnalizadorLexico()
@@ -16,5 +16,4 @@ if __name__ == "__main__":
     for tipo, valor in resultado:
         print(f"{valor} ---> Tipo: {tipo}")
         print('-------------------------------')
-
 
